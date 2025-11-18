@@ -10,6 +10,13 @@
             s1.PrintDetails();
             s2.PrintDetails();
             Console.WriteLine("College: " + Student.college);
+
+            Console.WriteLine("\n=== Task 2: Calculator Methods ===");
+            Calculator calc = new Calculator();
+            calc.PrintWelcome();
+            Console.WriteLine("Add: " + calc.Add(10, 20));
+            Console.WriteLine("Multiply: " + calc.Multiply(5, 4));
+            Console.WriteLine("Multiply default: " + calc.Multiply(5));
         }
     }
 }

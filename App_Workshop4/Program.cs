@@ -1,4 +1,6 @@
-﻿namespace App_Workshop4
+﻿using System.Numerics;
+
+namespace App_Workshop4
 {
     internal class Program
     {
@@ -10,6 +12,7 @@
             s1.PrintDetails();
             s2.PrintDetails();
             Console.WriteLine("College: " + Student.college);
+            Console.WriteLine();
 
             Console.WriteLine("\n=== Task 2: Calculator Methods ===");
             Calculator calc = new Calculator();
@@ -17,9 +20,9 @@
             Console.WriteLine("Add: " + calc.Add(10, 20));
             Console.WriteLine("Multiply: " + calc.Multiply(5, 4));
             Console.WriteLine("Multiply default: " + calc.Multiply(5));
+            Console.WriteLine();
 
-            // ====================== Task 3 ======================
-            Console.WriteLine("=== Task 3: Parameter Types ===");
+            Console.WriteLine("\n=== Task 3: Parameter Types ===");
             ParameterDemo pd = new ParameterDemo();
 
             int value = 50;
@@ -31,6 +34,14 @@
 
             int sum = pd.SumAll(1, 2, 3, 4, 5, 10, 20);
             Console.WriteLine($"SumAll result: {sum}\n");
+            Console.WriteLine();
+
+            Console.WriteLine("=== Task 4: Constructors ===");
+            Player p1 = new Player();
+            Player p2 = new Player("Warrior", 50, 100);
+            p1.Display();
+            p2.Display();
+            Console.WriteLine();
         }
     }
 }

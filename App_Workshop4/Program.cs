@@ -17,6 +17,20 @@
             Console.WriteLine("Add: " + calc.Add(10, 20));
             Console.WriteLine("Multiply: " + calc.Multiply(5, 4));
             Console.WriteLine("Multiply default: " + calc.Multiply(5));
+
+            // ====================== Task 3 ======================
+            Console.WriteLine("=== Task 3: Parameter Types ===");
+            ParameterDemo pd = new ParameterDemo();
+
+            int value = 50;
+            pd.Increase(ref value);
+            Console.WriteLine($"After Increase(ref): {value}");
+
+            pd.GetFullName(out string fullName);
+            Console.WriteLine($"Full name from out: {fullName}");
+
+            int sum = pd.SumAll(1, 2, 3, 4, 5, 10, 20);
+            Console.WriteLine($"SumAll result: {sum}\n");
         }
     }
 }

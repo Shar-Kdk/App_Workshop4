@@ -36,11 +36,32 @@ namespace App_Workshop4
             Console.WriteLine($"SumAll result: {sum}\n");
             Console.WriteLine();
 
-            Console.WriteLine("=== Task 4: Constructors ===");
+            Console.WriteLine("\n=== Task 4: Constructors ===");
             Player p1 = new Player();
             Player p2 = new Player("Warrior", 50, 100);
             p1.Display();
             p2.Display();
+            Console.WriteLine();
+
+            Console.WriteLine("=== Task 5: Enums & Records ===");
+
+            // Enum part
+            Console.Write("Enter a day of the week: ");
+            string input = Console.ReadLine()!.Trim();
+            DayType dayType = (input.ToLower() == "saturday" || input.ToLower() == "sunday")
+                ? DayType.Weekend : DayType.Weekday;
+
+            Console.WriteLine($"It is: {dayType}\n");
+
+            // Record part
+            Book b1 = new Book("Clean Code", "Robert C. Martin", 45.99);
+            Book b2 = b1 with { Title = "The Pragmatic Programmer", Price = 52.50 };
+
+            Console.WriteLine("First book:");
+            Console.WriteLine(b1);
+
+            var (title, author, price) = b2;
+            Console.WriteLine($"Deconstructed second book -> Title: {title}, Author: {author}, Price: {price}\n");
             Console.WriteLine();
         }
     }

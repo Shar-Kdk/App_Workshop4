@@ -14,7 +14,7 @@ namespace App_Workshop4
             Console.WriteLine("College: " + Student.college);
             Console.WriteLine();
 
-            Console.WriteLine("\n=== Task 2: Calculator Methods ===");
+            Console.WriteLine("\n======== Task 2: Calculator Methods ========");
             Calculator calc = new Calculator();
             calc.PrintWelcome();
             Console.WriteLine("Add: " + calc.Add(10, 20));
@@ -22,7 +22,7 @@ namespace App_Workshop4
             Console.WriteLine("Multiply default: " + calc.Multiply(5));
             Console.WriteLine();
 
-            Console.WriteLine("\n=== Task 3: Parameter Types ===");
+            Console.WriteLine("\n======== Task 3: Parameter Types ========");
             ParameterDemo pd = new ParameterDemo();
 
             int value = 50;
@@ -36,14 +36,14 @@ namespace App_Workshop4
             Console.WriteLine($"SumAll result: {sum}\n");
             Console.WriteLine();
 
-            Console.WriteLine("\n=== Task 4: Constructors ===");
+            Console.WriteLine("\n======== Task 4: Constructors ========");
             Player p1 = new Player();
             Player p2 = new Player("Warrior", 50, 100);
             p1.Display();
             p2.Display();
             Console.WriteLine();
 
-            Console.WriteLine("=== Task 5: Enums & Records ===");
+            Console.WriteLine("======== Task 5: Enums & Records ========");
 
             // Enum part
             Console.Write("Enter a day of the week: ");
@@ -63,6 +63,27 @@ namespace App_Workshop4
             var (title, author, price) = b2;
             Console.WriteLine($"Deconstructed second book -> Title: {title}, Author: {author}, Price: {price}\n");
             Console.WriteLine();
+
+            Console.WriteLine("\n======== Task 6: Debugging ========");
+            Console.Write("Enter marks obtained: ");
+            bool marksOk = int.TryParse(Console.ReadLine(), out int marks);
+
+            Console.Write("Enter total marks: ");
+            bool totalOk = int.TryParse(Console.ReadLine(), out int total);
+
+            if (!marksOk || !totalOk || total <= 0)
+            {
+                Console.WriteLine("Invalid input!");
+                return;
+            }
+
+            // ← BUG: integer division happens first!
+            //double percentage = marks / total * 100;
+
+            // Fixed: Force floating-point division
+            double percentage = (double)marks / total * 100;
+
+            Console.WriteLine($"Percentage: {percentage}%");
         }
     }
 }
